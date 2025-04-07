@@ -1,0 +1,54 @@
+{
+  "targets": {
+    "UnrealGame": {
+      "targetType": "Game",
+      "targetPath": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source\\UnrealGame.Target.cs",
+      "projectPath": "",
+      "configurations": [
+        "DebugGame",
+        "Development",
+        "Shipping"
+      ],
+      "platforms": [
+        "Win64"
+      ]
+    },
+    "UnrealEditor": {
+      "targetType": "Editor",
+      "targetPath": "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Source\\UnrealEditor.Target.cs",
+      "projectPath": "",
+      "configurations": [
+        "DebugGame",
+        "Development"
+      ],
+      "platforms": [
+        "Win64"
+      ]
+    },
+    "TestTwo": {
+      "targetType": "Game",
+      "targetPath": "C:\\Users\\Thomas\\Documents\\Unreal Projects\\TestTwo\\Source\\TestTwo.Target.cs",
+      "projectPath": "C:\\Users\\Thomas\\Documents\\Unreal Projects\\TestTwo\\TestTwo.uproject",
+      "configurations": [
+        "DebugGame",
+        "Development",
+        "Shipping"
+      ],
+      "platforms": [
+        "Win64"
+      ]
+    },
+    "TestTwoEditor": {
+      "targetType": "Editor",
+      "targetPath": "C:\\Users\\Thomas\\Documents\\Unreal Projects\\TestTwo\\Source\\TestTwoEditor.Target.cs",
+      "projectPath": "C:\\Users\\Thomas\\Documents\\Unreal Projects\\TestTwo\\TestTwo.uproject",
+      "configurations": [
+        "DebugGame",
+        "Development"
+      ],
+      "platforms": [
+        "Win64"
+      ]
+    }
+  }
+}

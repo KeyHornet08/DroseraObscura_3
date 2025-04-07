@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\TestTwo.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{F31BBDD1-B3E8-3BCC-9652-680E16935819}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\TestTwo.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\TestTwoEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\.vsconfig" />
+    <Filter Include="Config">
+      <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\TestTwo">
+      <UniqueIdentifier>{3622E372-A6EA-3510-9047-9157F90FB162}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\TestTwo\TestTwo.Build.cs">
+      <Filter>Source\TestTwo</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\TestTwo\TestTwo.cpp">
+      <Filter>Source\TestTwo</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\TestTwo\TestTwo.h">
+      <Filter>Source\TestTwo</Filter>
+    </ClInclude>
+    <Filter Include="Source\TestTwo\Private">
+      <UniqueIdentifier>{EA8E11C7-E4FE-3211-9E16-B12B5ABB9C03}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\TestTwo\Private\AControlServoActor.cpp">
+      <Filter>Source\TestTwo\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TestTwo\Private\ArduinoController.cpp">
+      <Filter>Source\TestTwo\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TestTwo\Private\FSerialThread.cpp">
+      <Filter>Source\TestTwo\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TestTwo\Private\SerialCommunicationWorker.cpp">
+      <Filter>Source\TestTwo\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TestTwo\Private\StepperControl.cpp">
+      <Filter>Source\TestTwo\Private</Filter>
+    </ClCompile>
+    <Filter Include="Source\TestTwo\Public">
+      <UniqueIdentifier>{E6245CAE-B860-3336-9B4D-FBE22E4FDAEB}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\TestTwo\Public\AControlServoActor.h">
+      <Filter>Source\TestTwo\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TestTwo\Public\ArduinoController.h">
+      <Filter>Source\TestTwo\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TestTwo\Public\FSerialThread.h">
+      <Filter>Source\TestTwo\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TestTwo\Public\SerialCommunicationWorker.h">
+      <Filter>Source\TestTwo\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TestTwo\Public\StepperControl.h">
+      <Filter>Source\TestTwo\Public</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

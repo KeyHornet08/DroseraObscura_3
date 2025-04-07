@@ -1,0 +1,14 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\users\\thomas\\documents\\unreal projects\\testtwo\\source\\testtwo\\testtwo.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\thomas\\documents\\unreal projects\\testtwo\\intermediate\\build\\win64\\x64\\testtwoeditor\\debuggame\\unrealed\\sharedpch.unrealed.project.nonoptimized.valapi.cpp20.h.pch",
+        "Includes": [
+            "c:\\users\\thomas\\documents\\unreal projects\\testtwo\\intermediate\\build\\win64\\x64\\unrealeditor\\debuggame\\testtwo\\definitions.testtwo.h",
+            "c:\\users\\thomas\\documents\\unreal projects\\testtwo\\source\\testtwo\\testtwo.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
