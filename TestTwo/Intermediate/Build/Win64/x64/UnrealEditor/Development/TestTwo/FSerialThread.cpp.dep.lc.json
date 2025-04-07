@@ -1,0 +1,15 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\users\\thomas\\documents\\unreal projects\\droseraobscura_3\\testtwo\\source\\testtwo\\private\\fserialthread.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\thomas\\documents\\unreal projects\\droseraobscura_3\\testtwo\\intermediate\\build\\win64\\x64\\testtwoeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
+        "Includes": [
+            "c:\\users\\thomas\\documents\\unreal projects\\droseraobscura_3\\testtwo\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\testtwo\\definitions.testtwo.h",
+            "c:\\users\\thomas\\documents\\unreal projects\\droseraobscura_3\\testtwo\\source\\testtwo\\public\\fserialthread.h",
+            "c:\\users\\thomas\\documents\\unreal projects\\droseraobscura_3\\testtwo\\intermediate\\build\\win64\\unrealeditor\\inc\\testtwo\\uht\\fserialthread.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

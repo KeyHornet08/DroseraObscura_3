@@ -1,11 +1,11 @@
-"C:\Users\Thomas\Documents\Unreal Projects\TestTwo\Source\TestTwo\Private\StepperControl.cpp"
-/FI"C:\Users\Thomas\Documents\Unreal Projects\TestTwo\Intermediate\Build\Win64\x64\TestTwoEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h"
-/FI"C:\Users\Thomas\Documents\Unreal Projects\TestTwo\Intermediate\Build\Win64\x64\UnrealEditor\Development\TestTwo\Definitions.TestTwo.h"
-/Yu"C:\Users\Thomas\Documents\Unreal Projects\TestTwo\Intermediate\Build\Win64\x64\TestTwoEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h"
-/Fp"C:\Users\Thomas\Documents\Unreal Projects\TestTwo\Intermediate\Build\Win64\x64\TestTwoEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.pch"
-/Fo"C:\Users\Thomas\Documents\Unreal Projects\TestTwo\Intermediate\Build\Win64\x64\UnrealEditor\Development\TestTwo\StepperControl.cpp.obj"
-/sourceDependencies "C:\Users\Thomas\Documents\Unreal Projects\TestTwo\Intermediate\Build\Win64\x64\UnrealEditor\Development\TestTwo\StepperControl.cpp.dep.json"
-@"C:\Users\Thomas\Documents\Unreal Projects\TestTwo\Intermediate\Build\Win64\x64\UnrealEditor\Development\TestTwo\TestTwo.Shared.rsp"
+"C:\Users\Thomas\Documents\Unreal Projects\DroseraObscura_3\TestTwo\Source\TestTwo\Private\StepperControl.cpp"
+/FI"C:\Users\Thomas\Documents\Unreal Projects\DroseraObscura_3\TestTwo\Intermediate\Build\Win64\x64\TestTwoEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h"
+/FI"C:\Users\Thomas\Documents\Unreal Projects\DroseraObscura_3\TestTwo\Intermediate\Build\Win64\x64\UnrealEditor\Development\TestTwo\Definitions.TestTwo.h"
+/Yu"C:\Users\Thomas\Documents\Unreal Projects\DroseraObscura_3\TestTwo\Intermediate\Build\Win64\x64\TestTwoEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h"
+/Fp"C:\Users\Thomas\Documents\Unreal Projects\DroseraObscura_3\TestTwo\Intermediate\Build\Win64\x64\TestTwoEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.pch"
+/Fo"C:\Users\Thomas\Documents\Unreal Projects\DroseraObscura_3\TestTwo\Intermediate\Build\Win64\x64\UnrealEditor\Development\TestTwo\StepperControl.cpp.obj"
+/sourceDependencies "C:\Users\Thomas\Documents\Unreal Projects\DroseraObscura_3\TestTwo\Intermediate\Build\Win64\x64\UnrealEditor\Development\TestTwo\StepperControl.cpp.dep.json"
+@"C:\Users\Thomas\Documents\Unreal Projects\DroseraObscura_3\TestTwo\Intermediate\Build\Win64\x64\UnrealEditor\Development\TestTwo\TestTwo.Shared.rsp"
 /Zc:inline
 /nologo
 /Oi

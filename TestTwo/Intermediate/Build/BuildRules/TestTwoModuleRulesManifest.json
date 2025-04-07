@@ -1,8 +1,8 @@
 {
 	"SourceFiles": [
-		"C:\\Users\\Thomas\\Documents\\Unreal Projects\\TestTwo\\Source\\TestTwo\\TestTwo.Build.cs",
-		"C:\\Users\\Thomas\\Documents\\Unreal Projects\\TestTwo\\Source\\TestTwo.Target.cs",
-		"C:\\Users\\Thomas\\Documents\\Unreal Projects\\TestTwo\\Source\\TestTwoEditor.Target.cs"
+		"C:\\Users\\Thomas\\Documents\\Unreal Projects\\DroseraObscura_3\\TestTwo\\Source\\TestTwo\\TestTwo.Build.cs",
+		"C:\\Users\\Thomas\\Documents\\Unreal Projects\\DroseraObscura_3\\TestTwo\\Source\\TestTwo.Target.cs",
+		"C:\\Users\\Thomas\\Documents\\Unreal Projects\\DroseraObscura_3\\TestTwo\\Source\\TestTwoEditor.Target.cs"
 	],
 	"EngineVersion": "5.4.4"
 }

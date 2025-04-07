@@ -1,0 +1,13 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\users\\thomas\\documents\\unreal projects\\droseraobscura_3\\testtwo\\source\\testtwo\\private\\serialcommunicationworker.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\thomas\\documents\\unreal projects\\droseraobscura_3\\testtwo\\intermediate\\build\\win64\\x64\\testtwoeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
+        "Includes": [
+            "c:\\users\\thomas\\documents\\unreal projects\\droseraobscura_3\\testtwo\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\testtwo\\definitions.testtwo.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
