@@ -1,0 +1,22 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-TestTwo-0001.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"C:\Users\Thomas\Documents\Unreal Projects\DroseraObscura_3\TestTwo\Intermediate\Build\Win64\x64\TestTwoEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.obj"
+"C:\Users\Thomas\Documents\Unreal Projects\DroseraObscura_3\TestTwo\Intermediate\Build\Win64\x64\UnrealEditor\Development\TestTwo\AControlServoActor.gen.cpp.obj"
+"C:\Users\Thomas\Documents\Unreal Projects\DroseraObscura_3\TestTwo\Intermediate\Build\Win64\x64\UnrealEditor\Development\TestTwo\ArduinoController.gen.cpp.obj"
+"C:\Users\Thomas\Documents\Unreal Projects\DroseraObscura_3\TestTwo\Intermediate\Build\Win64\x64\UnrealEditor\Development\TestTwo\FSerialThread.gen.cpp.obj"
+"C:\Users\Thomas\Documents\Unreal Projects\DroseraObscura_3\TestTwo\Intermediate\Build\Win64\x64\UnrealEditor\Development\TestTwo\StepperControl.gen.cpp.obj"
+"C:\Users\Thomas\Documents\Unreal Projects\DroseraObscura_3\TestTwo\Intermediate\Build\Win64\x64\UnrealEditor\Development\TestTwo\TestTwo.init.gen.cpp.obj"
+"C:\Users\Thomas\Documents\Unreal Projects\DroseraObscura_3\TestTwo\Intermediate\Build\Win64\x64\UnrealEditor\Development\TestTwo\TestTwo.cpp.obj"
+"C:\Users\Thomas\Documents\Unreal Projects\DroseraObscura_3\TestTwo\Intermediate\Build\Win64\x64\UnrealEditor\Development\TestTwo\AControlServoActor.cpp.obj"
+"C:\Users\Thomas\Documents\Unreal Projects\DroseraObscura_3\TestTwo\Intermediate\Build\Win64\x64\UnrealEditor\Development\TestTwo\ArduinoController.cpp.obj"
+"C:\Users\Thomas\Documents\Unreal Projects\DroseraObscura_3\TestTwo\Intermediate\Build\Win64\x64\UnrealEditor\Development\TestTwo\FSerialThread.cpp.obj"
+"C:\Users\Thomas\Documents\Unreal Projects\DroseraObscura_3\TestTwo\Intermediate\Build\Win64\x64\UnrealEditor\Development\TestTwo\SerialCommunicationWorker.cpp.obj"
+"C:\Users\Thomas\Documents\Unreal Projects\DroseraObscura_3\TestTwo\Intermediate\Build\Win64\x64\UnrealEditor\Development\TestTwo\StepperControl.cpp.obj"
+"C:\Users\Thomas\Documents\Unreal Projects\DroseraObscura_3\TestTwo\Intermediate\Build\Win64\x64\UnrealEditor\Development\TestTwo\Default.rc2.res"
+/OUT:"C:\Users\Thomas\Documents\Unreal Projects\DroseraObscura_3\TestTwo\Intermediate\Build\Win64\x64\UnrealEditor\Development\TestTwo\UnrealEditor-TestTwo-0001.lib"
