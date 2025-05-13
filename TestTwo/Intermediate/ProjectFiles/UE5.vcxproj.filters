@@ -58798,10 +58798,43 @@
     <Filter Include="Source\Runtime\Core\Public\Experimental">
       <UniqueIdentifier>{2456DC40-395D-3A0D-B96E-0D1017834DFC}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\..\..\..\..\..\..\Program Files\Epic Games\UE_5.4\Engine\Source\Runtime\Core\Public\Experimental\AControlServoActor_2.cpp">
+      <Filter>Source\Runtime\Core\Public\Experimental</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\..\..\..\..\..\..\Program Files\Epic Games\UE_5.4\Engine\Source\Runtime\Core\Public\Experimental\AControlServoActor_2.h">
+      <Filter>Source\Runtime\Core\Public\Experimental</Filter>
+    </ClInclude>
+    <None Include="..\..\..\..\..\..\..\..\Program Files\Epic Games\UE_5.4\Engine\Source\Runtime\Core\Public\Experimental\AControlServoActor_2.txt">
+      <Filter>Source\Runtime\Core\Public\Experimental</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\..\..\Program Files\Epic Games\UE_5.4\Engine\Source\Runtime\Core\Public\Experimental\AControlServoActor_2h.txt">
+      <Filter>Source\Runtime\Core\Public\Experimental</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\..\..\Program Files\Epic Games\UE_5.4\Engine\Source\Runtime\Core\Public\Experimental\AnimatronicsServoControl_Advanced.ino">
+      <Filter>Source\Runtime\Core\Public\Experimental</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\..\..\Program Files\Epic Games\UE_5.4\Engine\Source\Runtime\Core\Public\Experimental\AnimatronicsServoControl_Advanced_1.txt">
+      <Filter>Source\Runtime\Core\Public\Experimental</Filter>
+    </None>
     <ClInclude Include="..\..\..\..\..\..\..\..\Program Files\Epic Games\UE_5.4\Engine\Source\Runtime\Core\Public\Experimental\ConcurrentLinearAllocator.h">
       <Filter>Source\Runtime\Core\Public\Experimental</Filter>
     </ClInclude>
     <None Include="..\..\..\..\..\..\..\..\Program Files\Epic Games\UE_5.4\Engine\Source\Runtime\Core\Public\Experimental\CSS_ServoRandomChange.txt">
+      <Filter>Source\Runtime\Core\Public\Experimental</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\..\..\Program Files\Epic Games\UE_5.4\Engine\Source\Runtime\Core\Public\Experimental\HostSheild.cpp Initial.txt">
+      <Filter>Source\Runtime\Core\Public\Experimental</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\..\..\Program Files\Epic Games\UE_5.4\Engine\Source\Runtime\Core\Public\Experimental\Notes.txt">
+      <Filter>Source\Runtime\Core\Public\Experimental</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\..\..\Program Files\Epic Games\UE_5.4\Engine\Source\Runtime\Core\Public\Experimental\NotesForNewCode.txt">
+      <Filter>Source\Runtime\Core\Public\Experimental</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\..\..\Program Files\Epic Games\UE_5.4\Engine\Source\Runtime\Core\Public\Experimental\StepperControl.h_2.txt">
+      <Filter>Source\Runtime\Core\Public\Experimental</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\..\..\Program Files\Epic Games\UE_5.4\Engine\Source\Runtime\Core\Public\Experimental\StepperControl_initial.txt">
       <Filter>Source\Runtime\Core\Public\Experimental</Filter>
     </None>
     <Filter Include="Source\Runtime\Core\Public\Experimental\Async">
