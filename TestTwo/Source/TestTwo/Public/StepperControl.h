@@ -26,10 +26,10 @@ private:
     bool OpenSerialPort();
     void CloseSerialPort();
     float GetServoHornRotationY(FName BoneName);
-    AActor* FindActorByName(FName ActorName);
+    AActor* FindActorByTag(FName ActorTag);
 
 private:
-    void* SerialHandle;
+    HANDLE SerialHandle;
     FString PortName;
 
     float XValue;

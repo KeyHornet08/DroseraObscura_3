@@ -1,39 +1,48 @@
-﻿#define WIN32_LEAN_AND_MEAN
-#include <Windows.h>
-
-#include "StepperControl.h"
+﻿#include "StepperControl.h"
+#include "Windows/AllowWindowsPlatformTypes.h"
+#include "Windows/MinWindows.h"
+#include <commdlg.h>
 #include "Engine/World.h"
 #include "GameFramework/Actor.h"
-#include "Components/SkeletalMeshComponent.h"
-#include "DrawDebugHelpers.h"
-#include "Kismet/GameplayStatics.h"
 #include "EngineUtils.h"
+#include "Kismet/GameplayStatics.h"
+#include "Components/SkeletalMeshComponent.h"
+#include "HAL/PlatformProcess.h"
 
 AStepperControl::AStepperControl()
 {
     PrimaryActorTick.bCanEverTick = true;
-
+    SerialHandle = INVALID_HANDLE_VALUE;
     PortName = TEXT("COM10");
-    XValue = ZValue = LastXValue = LastZValue = 0.0f;
-    SerialHandle = nullptr;
+
+    XValue = 0.0f;
+    ZValue = 0.0f;
 }
 
 AStepperControl::~AStepperControl()
 {
-    CloseSerialPort();
+    if (SerialHandle != INVALID_HANDLE_VALUE)
+    {
+        CloseSerialPort();
+    }
 }
 
 void AStepperControl::BeginPlay()
 {
     Super::BeginPlay();
 
-    if (!OpenSerialPort())
+    if (OpenSerialPort())
     {
-        UE_LOG(LogTemp, Error, TEXT("Failed to open serial port."));
+        UE_LOG(LogTemp, Log, TEXT("Serial port opened successfully."));
     }
     else
     {
-        UE_LOG(LogTemp, Display, TEXT("Serial port opened successfully."));
+        UE_LOG(LogTemp, Error, TEXT("Failed to open serial port! Check port name, cable, drivers, or if another program is using the port."));
+    }
+
+    for (TActorIterator<AActor> It(GetWorld()); It; ++It)
+    {
+        UE_LOG(LogTemp, Warning, TEXT("Actor in scene: %s"), *It->GetName());
     }
 }
 
@@ -41,126 +50,129 @@ void AStepperControl::Tick(float DeltaTime)
 {
     Super::Tick(DeltaTime);
 
-    float BoneY = GetServoHornRotationY(FName("servoHorn_00"));
+    float YRotation1 = GetServoHornRotationY(TEXT("servoHorn_00"));
+    float YRotation2 = GetServoHornRotationY(TEXT("servoHorn_03"));
 
-    ZValue = FMath::Clamp(BoneY * 2.0f, -15.0f, 15.0f);
-    XValue = FMath::Clamp(BoneY * 1.0f, 0.0f, 15.0f);
+    XValue = FMath::GetMappedRangeValueClamped(FVector2D(-8, 6), FVector2D(-15, 15), YRotation1);
+    ZValue = FMath::GetMappedRangeValueClamped(FVector2D(-8, 6), FVector2D(-15, 15), YRotation2);
 
-    if (!FMath::IsNearlyEqual(XValue, LastXValue) || !FMath::IsNearlyEqual(ZValue, LastZValue))
-    {
-        FString GCode = FString::Printf(TEXT("G1 X%.2f Z%.2f F500"), XValue, ZValue);
-        SendGCode(GCode);
+    UE_LOG(LogTemp, Log, TEXT("servoHorn_00 Y-Rotation: %.2f, servoHorn_03 Y-Rotation: %.2f"), YRotation1, YRotation2);
 
-        UE_LOG(LogTemp, Display, TEXT("Updated X: %.2f -> %.2f, Z: %.2f -> %.2f"), LastXValue, XValue, LastZValue, ZValue);
-
-        LastXValue = XValue;
-        LastZValue = ZValue;
-    }
+    FString GCodeCommand = FString::Printf(TEXT("G1 X%.2f Z%.2f F500"), XValue, ZValue);
+    SendGCode(GCodeCommand);
 }
 
 float AStepperControl::GetServoHornRotationY(FName BoneName)
 {
-    AActor* FoundActor = FindActorByName(FName("ObsucreaOneTest"));
-    if (!FoundActor)
+    AActor* TargetActor = nullptr;
+
+    for (TActorIterator<AActor> It(GetWorld()); It; ++It)
     {
-        UE_LOG(LogTemp, Warning, TEXT("Could not find actor: ObsucreaOneTest"));
+        if (It->GetName().Contains(TEXT("ObsucreaOneTest")))
+        {
+            TargetActor = *It;
+            break;
+        }
+    }
+
+    if (!TargetActor)
+    {
+        UE_LOG(LogTemp, Error, TEXT("Could not find actor with name containing 'ObsucreaOneTest'"));
         return 0.0f;
     }
 
-    USkeletalMeshComponent* SkelMesh = FoundActor->FindComponentByClass<USkeletalMeshComponent>();
-    if (!SkelMesh || !SkelMesh->DoesSocketExist(BoneName))
+    USkeletalMeshComponent* SkeletalMesh = TargetActor->FindComponentByClass<USkeletalMeshComponent>();
+    if (!SkeletalMesh)
     {
-        UE_LOG(LogTemp, Warning, TEXT("Bone or mesh not found: %s"), *BoneName.ToString());
+        UE_LOG(LogTemp, Error, TEXT("SkeletalMeshComponent not found!"));
         return 0.0f;
     }
 
-    FRotator BoneRot = SkelMesh->GetBoneQuaternion(BoneName).Rotator();
-    return BoneRot.Yaw;
+    int32 BoneIndex = SkeletalMesh->GetBoneIndex(BoneName);
+    if (BoneIndex == INDEX_NONE)
+    {
+        UE_LOG(LogTemp, Error, TEXT("Bone '%s' not found in skeletal mesh!"), *BoneName.ToString());
+        return 0.0f;
+    }
+
+    FTransform BoneTransform = SkeletalMesh->GetBoneTransform(BoneIndex);
+    float BoneRotationY = BoneTransform.GetRotation().Rotator().Pitch;
+
+    return BoneRotationY;
+}
+
+void AStepperControl::SendGCode(const FString& GCode)
+{
+    if (SerialHandle != INVALID_HANDLE_VALUE)
+    {
+        FString CommandWithLineEnd = GCode + TEXT("\r\n");
+        const char* CommandStr = TCHAR_TO_UTF8(*CommandWithLineEnd);
+        DWORD bytesWritten;
+
+        bool success = WriteFile(SerialHandle, CommandStr, strlen(CommandStr), &bytesWritten, nullptr);
+
+        if (success)
+        {
+            UE_LOG(LogTemp, Log, TEXT("Sent GCode: %s"), *GCode);
+        }
+        else
+        {
+            UE_LOG(LogTemp, Error, TEXT("Failed to send GCode to Arduino!"));
+        }
+    }
 }
 
 bool AStepperControl::OpenSerialPort()
 {
-    FString FullPort = FString("\\\\.\\") + PortName;
-    SerialHandle = CreateFileW(*FullPort, GENERIC_READ | GENERIC_WRITE, 0, nullptr, OPEN_EXISTING, 0, nullptr);
+    SerialHandle = CreateFile(*PortName,
+        GENERIC_READ | GENERIC_WRITE,
+        0,
+        nullptr,
+        OPEN_EXISTING,
+        0,
+        nullptr);
 
     if (SerialHandle == INVALID_HANDLE_VALUE)
     {
-        SerialHandle = nullptr;
+        UE_LOG(LogTemp, Error, TEXT("CreateFile failed for port %s"), *PortName);
         return false;
     }
 
-    DCB SerialParams = { 0 };
-    SerialParams.DCBlength = sizeof(SerialParams);
+    DCB dcbSerialParams = { 0 };
+    dcbSerialParams.DCBlength = sizeof(dcbSerialParams);
 
-    if (!GetCommState(SerialHandle, &SerialParams))
+    if (!GetCommState(SerialHandle, &dcbSerialParams))
     {
+        UE_LOG(LogTemp, Error, TEXT("GetCommState failed"));
         CloseHandle(SerialHandle);
-        SerialHandle = nullptr;
         return false;
     }
 
-    SerialParams.BaudRate = CBR_115200;
-    SerialParams.ByteSize = 8;
-    SerialParams.StopBits = ONESTOPBIT;
-    SerialParams.Parity = NOPARITY;
+    dcbSerialParams.BaudRate = CBR_115200;
+    dcbSerialParams.ByteSize = 8;
+    dcbSerialParams.StopBits = ONESTOPBIT;
+    dcbSerialParams.Parity = NOPARITY;
 
-    if (!SetCommState(SerialHandle, &SerialParams))
+    if (!SetCommState(SerialHandle, &dcbSerialParams))
     {
+        UE_LOG(LogTemp, Error, TEXT("SetCommState failed"));
         CloseHandle(SerialHandle);
-        SerialHandle = nullptr;
         return false;
     }
 
-    COMMTIMEOUTS Timeouts = { 0 };
-    Timeouts.ReadIntervalTimeout = 50;
-    Timeouts.ReadTotalTimeoutConstant = 50;
-    Timeouts.ReadTotalTimeoutMultiplier = 10;
-    Timeouts.WriteTotalTimeoutConstant = 50;
-    Timeouts.WriteTotalTimeoutMultiplier = 10;
-
-    if (!SetCommTimeouts(SerialHandle, &Timeouts))
-    {
-        CloseHandle(SerialHandle);
-        SerialHandle = nullptr;
-        return false;
-    }
+    // Allow board time to reset
+    FPlatformProcess::Sleep(2.0f);
+    UE_LOG(LogTemp, Log, TEXT("Serial port opened and ready."));
 
     return true;
 }
 
 void AStepperControl::CloseSerialPort()
 {
-    if (SerialHandle)
+    if (SerialHandle != INVALID_HANDLE_VALUE)
     {
         CloseHandle(SerialHandle);
-        SerialHandle = nullptr;
+        SerialHandle = INVALID_HANDLE_VALUE;
+        UE_LOG(LogTemp, Log, TEXT("Serial port closed."));
     }
-}
-
-void AStepperControl::SendSerialData(const FString& Data)
-{
-    if (!SerialHandle || SerialHandle == INVALID_HANDLE_VALUE) return;
-
-    FTCHARToUTF8 UTF8(*Data);
-    DWORD BytesWritten;
-    WriteFile(SerialHandle, UTF8.Get(), UTF8.Length(), &BytesWritten, nullptr);
-}
-
-void AStepperControl::SendGCode(const FString& GCode)
-{
-    FString Command = GCode + TEXT("\n");
-    SendSerialData(Command);
-    UE_LOG(LogTemp, Display, TEXT("Sent G-code: %s"), *GCode);
-}
-
-AActor* AStepperControl::FindActorByName(FName ActorName)
-{
-    for (TActorIterator<AActor> It(GetWorld()); It; ++It)
-    {
-        if (It->GetFName() == ActorName)
-        {
-            return *It;
-        }
-    }
-    return nullptr;
 }
