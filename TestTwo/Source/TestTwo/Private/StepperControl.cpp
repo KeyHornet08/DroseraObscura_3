@@ -13,7 +13,7 @@ AStepperControl::AStepperControl()
 {
     PrimaryActorTick.bCanEverTick = true;
     SerialHandle = INVALID_HANDLE_VALUE;
-    PortName = TEXT("COM10");
+    PortName = TEXT("COM6");
 
     XValue = 0.0f;
     ZValue = 0.0f;
