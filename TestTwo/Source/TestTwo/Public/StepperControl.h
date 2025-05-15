@@ -28,6 +28,12 @@ private:
     float GetServoHornRotationY(FName BoneName);
     AActor* FindActorByTag(FName ActorTag);
 
+   
+private:
+    float SendInterval = 0.25f; // seconds between sends
+    float TimeSinceLastSend = 0.0f;
+
+
 private:
     HANDLE SerialHandle;
     FString PortName;
